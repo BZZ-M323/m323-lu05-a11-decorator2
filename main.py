@@ -4,7 +4,9 @@ class User:
         self.permission_level = permission_level
 
 def check_permission(required_permission):
-    """Ein Decorator, der das Berechtigungslevel des Benutzers überprüft.
+    """
+    Ein Decorator, der das Berechtigungslevel des Benutzers überprüft.
+    Druckt f'{user.username} hat nicht genügend Berechtigungen.', wenn das Berechtigungslevel nicht ausreicht.
 
     Args:
         required_permission (int): Das erforderliche Berechtigungslevel.
