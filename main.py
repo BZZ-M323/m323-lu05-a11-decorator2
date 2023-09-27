@@ -4,7 +4,9 @@ class User:
         self.permission_level = permission_level
 
 def check_permission(required_permission):
-    """Ein Decorator, der das Berechtigungslevel des Benutzers überprüft.
+    """
+    Ein Decorator, der das Berechtigungslevel des Benutzers überprüft.
+    Druckt f'{user.username} hat nicht genügend Berechtigungen.', wenn das Berechtigungslevel nicht ausreicht.
 
     Args:
         required_permission (int): Das erforderliche Berechtigungslevel.
@@ -12,8 +14,16 @@ def check_permission(required_permission):
     Returns:
         function: Eine dekorierte Funktion, die nur ausgeführt wird, wenn das Berechtigungslevel ausreicht.
     """
-    # TODO: Ihr Code hier
-    ...
+    def decorator(original_function):
+        def wrapper(user, *args, **kwargs):
+            if user.permission_level >= required_permission:
+                return original_function(user, *args, **kwargs)
+            else:
+                print(f'{user.username} hat nicht genügend Berechtigungen.')
+
+        return wrapper
+
+    return decorator
 
 @check_permission(2)
 def view_profile(user):
