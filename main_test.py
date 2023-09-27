@@ -1,4 +1,4 @@
-from sol import check_permission, User
+from main import check_permission, User
 def test_check_permission(capsys):
     # Erstellen von Benutzerobjekten
     alice = User('Alice', 3)
