@@ -1,12 +1,34 @@
-def calculate():
-    """
-    calculates the total
-    :return: None
-    """
-    price = 15.75
-    quantity = 3  # TODO change quantity to 5
-    print(f'Total: {price * quantity}')
+class User:
+    def __init__(self, username, permission_level):
+        self.username = username
+        self.permission_level = permission_level
 
+def check_permission(required_permission):
+    """Ein Decorator, der das Berechtigungslevel des Benutzers überprüft.
 
+    Args:
+        required_permission (int): Das erforderliche Berechtigungslevel.
+
+    Returns:
+        function: Eine dekorierte Funktion, die nur ausgeführt wird, wenn das Berechtigungslevel ausreicht.
+    """
+    # TODO: Ihr Code hier
+    ...
+
+@check_permission(2)
+def view_profile(user):
+    print(f"{user.username} kann das Profil anzeigen.")
+
+@check_permission(4)
+def edit_profile(user):
+    print(f"{user.username} kann das Profil bearbeiten.")
+
+# Testen Sie Ihren Decorator
 if __name__ == '__main__':
-    calculate()
+    alice = User('Alice', 3)
+    bob = User('Bob', 1)
+
+    view_profile(alice)
+    edit_profile(alice)
+    view_profile(bob)
+    edit_profile(bob)
