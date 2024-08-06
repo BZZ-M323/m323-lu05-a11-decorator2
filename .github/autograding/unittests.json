@@ -1,0 +1,8 @@
+[
+  {
+    "name": "test_check_permission",
+    "function": "test_check_permission",
+    "timeout": 10,
+    "points": 1
+  }
+]
