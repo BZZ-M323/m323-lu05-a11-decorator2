@@ -1,7 +1,9 @@
 class User:
+
     def __init__(self, username, permission_level):
         self.username = username
         self.permission_level = permission_level
+
 
 def check_permission(required_permission):
     """
@@ -17,13 +19,16 @@ def check_permission(required_permission):
     # TODO: Ihr Code hier
     ...
 
+
 @check_permission(2)
 def view_profile(user):
-    print(f"{user.username} kann das Profil anzeigen.")
+    print(f'{user.username} kann das Profil anzeigen.')
+
 
 @check_permission(4)
 def edit_profile(user):
-    print(f"{user.username} kann das Profil bearbeiten.")
+    print(f'{user.username} kann das Profil bearbeiten.')
+
 
 # Testen Sie Ihren Decorator
 if __name__ == '__main__':
